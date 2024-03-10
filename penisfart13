@@ -54,6 +54,16 @@ local Section = Tab:Section({
    Text = "Main"
 })
 
+Section:Input({
+   Text = "Name Spoofer",
+Callback = function(hasn31) 
+for i,v in next, game:GetDescendants() do 
+    if v:IsA('TextLabel') and v.Text:match(tostring(game.Players.LocalPlayer.Name)) then 
+        v.Text = hasn31
+    end 
+end
+end
+})
 
 local drop = Section:Dropdown({
    Text = "Walkspeed",
@@ -108,7 +118,7 @@ end)
 Section:Toggle({
    Text = "Enhanced Dribble",
         Callback = function(dribbleENHC)
-            local multiplier = 1.21
+            local multiplier = 1.13
 
             if dribbleENHC == true then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.DescendantAdded:Connect(function(v)
