@@ -166,7 +166,11 @@ Section:Toggle({
 Section:Toggle({
    Text = "v2 Aimbot",
    Callback = function(aimbott)
+   if aimbott == true then
       _G.valshoot = 63
+      else
+      _G.valshoot = 99
+      end
                 local UserInputService = game:GetService("UserInputService")
                 local Players = game:GetService("Players")
                 local player = Players.LocalPlayer
