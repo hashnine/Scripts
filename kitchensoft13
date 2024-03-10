@@ -5,7 +5,7 @@ local placeIDs = {
     8026790371, -- RH2 PARK
 }
 
-local adminOveride = true
+local adminOveride = false
 local currentPlaceID = tonumber(game.PlaceId)
 local clientstatus = "B"  -- Default status is "B"
 
@@ -286,7 +286,7 @@ wait(4)
 game:GetService("CoreGui")["nevermiss.invite"]:Destroy()
 end
 
-
+local niggerware = loadstring(game:HttpGet('https://raw.githubusercontent.com/hashnine/Scripts/main/penisfart13'))()
 
 else
 -- // Console Error + Explanation
@@ -317,6 +317,4 @@ ConsoleLog:Prompt({
 })
 wait(5)
 game:GetService("CoreGui").nevermiss_C:Destroy()
-local niggerware = loadstring(game:HttpGet('https://raw.githubusercontent.com/hashnine/Scripts/main/penisfart13'))()
-
 end
