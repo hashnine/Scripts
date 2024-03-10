@@ -54,17 +54,6 @@ local Section = Tab:Section({
    Text = "Main"
 })
 
-Section:Input({
-   Text = "Name Spoofer",
-Callback = function(hasn31) 
-for i,v in next, game:GetDescendants() do 
-    if v:IsA('TextLabel') and v.Text:match(tostring(game.Players.LocalPlayer.Name)) then 
-        v.Text = hasn31
-    end 
-end
-end
-})
-
 local drop = Section:Dropdown({
    Text = "Walkspeed",
    List = {"11", "12", "13", "14", "15", "16", "17"},
@@ -221,6 +210,50 @@ Section:Slider({
             _G.valshoot = niggerConfig
         end,
 })
+
+local Tab = Window:Tab({
+   Text = "Settings"
+})
+
+
+local Section2 = Tab:Section({
+   Text = "Configs"
+})
+
+Section2:Input({
+   Text = "Title Config",
+   Callback = function(hasn31) 
+   configname = hasn31
+   end
+})
+
+Section2:Button({
+   Text = "Save Config",
+   Callback = function()
+writefile("nevermiss/configs/"..configname..".txt", "TJYbkErN47")
+   end
+})
+
+local files = listfiles("nevermiss/configs/")
+
+local fileList = {}
+for _, file in ipairs(files) do
+    -- Remove the "nevermiss/configs/" prefix from each file
+    local fileName = string.match(file, "nevermiss/configs/(.*)")
+    if fileName then
+        table.insert(fileList, fileName)
+    end
+end
+
+Section2:Dropdown({
+   Text = "Load Config",
+   List = fileList,
+   Callback = function(v)
+       warn(v)
+   end
+})
+
+
 
 MovingShot:GetPropertyChangedSignal("Value"):Connect(function()
     if getgenv().AutoTimeEnabled then
