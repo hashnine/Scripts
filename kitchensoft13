@@ -3,9 +3,10 @@ local placeIDs = {
     6549794549, -- RH2
     6678600773, -- RH2 GYM
     8026790371, -- RH2 PARK
+    13272886093, -- RH2 PLAZA
 }
 
-local adminOveride = false
+local VIPAccess = true
 local currentPlaceID = tonumber(game.PlaceId)
 local clientstatus = "B"  -- Default status is "B"
 
@@ -46,6 +47,20 @@ Humanoid:GetPropertyChangedSignal("Jump"):Connect(function()
         StillWaiting = false
     end
 end)
+if VIPAccess then
+ConsoleLog:Prompt({
+    Title = "VIP Loader Connected",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "vip"
+})
+wait()
+end
 ConsoleLog:Prompt({
     Title = "Loading Library",
     TypesWeHave = {
@@ -57,7 +72,7 @@ ConsoleLog:Prompt({
     },
     Type = "default"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -73,7 +88,7 @@ ConsoleLog:Prompt({
     },
     Type = "default"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -89,7 +104,7 @@ ConsoleLog:Prompt({
     },
     Type = "default"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -105,7 +120,7 @@ ConsoleLog:Prompt({
     },
     Type = "default"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -121,7 +136,7 @@ ConsoleLog:Prompt({
     },
     Type = "default"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -137,7 +152,7 @@ ConsoleLog:Prompt({
     },
     Type = "default"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -153,7 +168,7 @@ ConsoleLog:Prompt({
     },
     Type = "default"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -169,7 +184,7 @@ ConsoleLog:Prompt({
     },
     Type = "default"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -185,7 +200,7 @@ ConsoleLog:Prompt({
     },
     Type = "default"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -202,7 +217,7 @@ ConsoleLog:Prompt({
     Type = "default"
 })
 if clientstatus == "A" then
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -220,7 +235,7 @@ ConsoleLog:Prompt({
 })
 
 
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(2)
@@ -236,7 +251,7 @@ ConsoleLog:Prompt({
     },
     Type = "warning"
 })
-if adminOveride then
+if VIPAccess then
 wait()
 else
 wait(3)
@@ -252,7 +267,7 @@ ConsoleLog:Prompt({
     },
     Type = "nofitication"
 })
-if adminOveride then
+if VIPAccess then
 wait(5)
 else
 wait(5)
@@ -286,7 +301,13 @@ wait(4)
 game:GetService("CoreGui")["nevermiss.invite"]:Destroy()
 end
 
-local niggerware = loadstring(game:HttpGet('https://raw.githubusercontent.com/hashnine/Scripts/main/penisfart13'))()
+for _, id in ipairs(placeIDs) do
+    if currentPlaceID == 6549794549 or 6678600773 or 8026790371 or 13272886093 then
+        print('RH2 Detected')
+        local niggerware = loadstring(game:HttpGet('https://raw.githubusercontent.com/hashnine/Scripts/main/penisfart13'))()
+        break
+    end
+end
 
 else
 -- // Console Error + Explanation
