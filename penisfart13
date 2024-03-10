@@ -220,7 +220,7 @@ StandingShot:GetPropertyChangedSignal("Value"):Connect(function()
         end
     elseif getgenv().AutoAimbotEnabled then 
 
-        task.wait(0.53209485)
+        task.wait(0.54709485)
     
         local args = {
             [1] = false,
