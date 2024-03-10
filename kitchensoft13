@@ -1,0 +1,322 @@
+local placeIDs = {
+    16070671286, -- testing place
+    6549794549, -- RH2
+    6678600773, -- RH2 GYM
+    8026790371, -- RH2 PARK
+}
+
+local adminOveride = true
+local currentPlaceID = tonumber(game.PlaceId)
+local clientstatus = "B"  -- Default status is "B"
+
+for _, id in ipairs(placeIDs) do
+    if currentPlaceID == id then
+        clientstatus = "A"
+        break
+    end
+end
+
+
+local Console =  loadstring(game:HttpGet("https://raw.githubusercontent.com/hashnine/Utilities/main/UI%20Lib/console"))()
+local ConsoleLog = Console:Window({
+    Title = "nevermiss.cc",
+    Position = UDim2.new(0.5, 0, 0.5, 0),
+    DragSpeed = 12
+})
+local Player = game.Players.LocalPlayer
+local Char = Player.Character
+local Humanoid = Char.Humanoid
+local WaitDelay = 0.5
+local StillWaiting = false
+Humanoid:GetPropertyChangedSignal("Jump"):Connect(function()
+    if StillWaiting == false then
+        StillWaiting = true
+        ConsoleLog:Prompt({
+            Title = "HumanoidSignalJumped",
+            TypesWeHave = {
+                "default",
+                "success",
+                "fail",
+                "warning",
+                "nofitication"
+            },
+            Type = "default"
+        })
+        wait(WaitDelay)
+        StillWaiting = false
+    end
+end)
+ConsoleLog:Prompt({
+    Title = "Loading Library",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Loading Packages",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Loading Modules",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Loading APIs",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Loading Components",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Loading Plugins",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Loading Utilities",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Loading Extensions",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Loading Functions",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Loading Scripts",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "default"
+})
+if clientstatus == "A" then
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "Connected",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "success"
+})
+
+
+if adminOveride then
+wait()
+else
+wait(2)
+end
+ConsoleLog:Prompt({
+    Title = "We are not liable for any bans",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "warning"
+})
+if adminOveride then
+wait()
+else
+wait(3)
+end
+ConsoleLog:Prompt({
+    Title = "This window will close in 5 seconds",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "nofitication"
+})
+if adminOveride then
+wait(5)
+else
+wait(5)
+end
+game:GetService("CoreGui").nevermiss_C:Destroy()
+
+local DiscordModuleURL = "https://raw.githubusercontent.com/hashnine/Utilities/main/Invite/DiscordModule"
+local DiscordServerInvite = "https://discord.gg/rSrkKEVQN5"
+local DiscordServerName = "nevermiss.cc"
+local ShouldForceJoin = false
+if ShouldForceJoin then
+    Module.Join(DiscordServerInvite)
+end
+
+local success, content = pcall(function()
+    return readfile("nevermiss/discord.txt")
+end)
+
+if success then
+    local HttpService = game:GetService("HttpService")
+
+    if content == "TJYbkErN47" then
+        -- No discord invite prompt sends
+end
+else
+    print("Discord Invite Prompt Saved")
+        writefile("nevermiss/discord.txt", "TJYbkErN47")
+local Module = loadstring(game:HttpGet(DiscordModuleURL))()
+Module.Prompt({ invite = DiscordServerInvite, name = DiscordServerName })
+wait(4)
+game:GetService("CoreGui")["nevermiss.invite"]:Destroy()
+end
+
+
+
+else
+-- // Console Error + Explanation
+-- // Don't go past the else
+
+ConsoleLog:Prompt({
+    Title = "Connection Issue",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "fail"
+})
+wait(4)
+ConsoleLog:Prompt({
+    Title = "Game is not supported.",
+    TypesWeHave = {
+        "default",
+        "success",
+        "fail",
+        "warning",
+        "nofitication"
+    },
+    Type = "nofitication"
+})
+wait(5)
+game:GetService("CoreGui").nevermiss_C:Destroy()
+local niggerware = loadstring(game:HttpGet('https://raw.githubusercontent.com/hashnine/Scripts/main/penisfart13'))()
+
+end
