@@ -88,13 +88,6 @@ local drop = Section:Dropdown({
 })
 
 Section:Toggle({
-   Text = "Aimbot",
-   Callback = function(aimbot5)
-      getgenv().AutoAimbotEnabled = aimbot5
-   end
-})
-
-Section:Toggle({
    Text = "Infinite Stamina",
 Callback = function(staminaINF)
 getgenv().StaminaEnabled = staminaINF
@@ -164,6 +157,61 @@ end)
         end,
 })
 
+Section:Toggle({
+   Text = "v1 Aimbot",
+   Callback = function(aimbot5)
+      getgenv().AutoAimbotEnabled = aimbot5
+   end
+})
+
+Section:Toggle({
+   Text = "v2 Aimbot",
+   Callback = function(aimbott)
+      _G.valshoot = 63
+                local UserInputService = game:GetService("UserInputService")
+                local Players = game:GetService("Players")
+                local player = Players.LocalPlayer
+                local bar = player.Backpack.ActionValues.Power
+        
+                local initialPower = bar.Value
+                local executed = false 
+        
+                local function onKeyPress(input)
+                    if input.KeyCode == Enum.KeyCode.E then
+                        if not executed and bar.Value >= _G.valshoot then
+                            executed = true 
+                            Players.LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(false, "Shooting", "Standing Shot")
+                            print("Shot released")
+                            wait(3)
+                            executed = false
+                        end
+                    end
+                end
+        
+                UserInputService.InputBegan:Connect(onKeyPress)
+        
+                bar:GetPropertyChangedSignal("Value"):Connect(function()
+                    if not executed and bar.Value >= _G.valshoot and UserInputService:IsKeyDown(Enum.KeyCode.E) then
+                        executed = true 
+                        Players.LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(false, "Shooting", "Standing Shot")
+                        print("Shot released")
+                        wait(3)
+                        executed = false
+                    end
+                end)
+        end,
+})
+
+Section:Slider({
+   Text = "Adjust v2 Aimbot",
+   Default = 62,
+   Minimum = 0,
+   Maximum = 102,
+           Callback = function(niggerConfig)
+            _G.valshoot = niggerConfig
+        end,
+})
+
 MovingShot:GetPropertyChangedSignal("Value"):Connect(function()
     if getgenv().AutoTimeEnabled then
         if MovingShot.Value == true then
@@ -220,7 +268,7 @@ StandingShot:GetPropertyChangedSignal("Value"):Connect(function()
         end
     elseif getgenv().AutoAimbotEnabled then 
 
-        task.wait(0.54709485)
+        task.wait(0.52709485)
     
         local args = {
             [1] = false,
