@@ -520,7 +520,7 @@ Floater:GetPropertyChangedSignal("Value"):Connect(function()
         end 
     elseif getgenv().AutoAimbotEnabled then 
 
-        task.wait(0.41609485)
+        task.wait(0.39809485)
     
             local args = {
                 [1] = false,
