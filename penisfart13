@@ -220,7 +220,7 @@ StandingShot:GetPropertyChangedSignal("Value"):Connect(function()
         end
     elseif getgenv().AutoAimbotEnabled then 
 
-        task.wait(0.52609485)
+        task.wait(0.54609485)
     
         local args = {
             [1] = false,
@@ -520,7 +520,7 @@ Floater:GetPropertyChangedSignal("Value"):Connect(function()
         end 
     elseif getgenv().AutoAimbotEnabled then 
 
-        task.wait(0.40609485)
+        task.wait(0.41609485)
     
             local args = {
                 [1] = false,
@@ -665,7 +665,7 @@ PostFade:GetPropertyChangedSignal("Value"):Connect(function()
         end 
     elseif getgenv().AutoAimbotEnabled then 
 
-        task.wait(0.54609485)
+        task.wait(0.57609485)
     
             local args = {
                 [1] = false,
