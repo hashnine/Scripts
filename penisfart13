@@ -49,9 +49,11 @@ local Tab = Window:Tab({
    Text = "RH2"
 })
 
+
 local Section = Tab:Section({
    Text = "Main"
 })
+
 
 local drop = Section:Dropdown({
    Text = "Walkspeed",
@@ -162,97 +164,6 @@ end)
         end,
 })
 
--- TAB 2
-
-Section2:Toggle({
-   Text = "ESP Box",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
-Section2:Toggle({
-   Text = "ESP Name",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
-Section2:Toggle({
-   Text = "ESP Health",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
-Section2:Toggle({
-   Text = "ESP Distance",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
-
-Section2:Keybind({
-   Text = "Refresh ESP",
-   Default = Enum.KeyCode.P,
-   Callback = function()
-       warn("Pressed.")
-   end
-})
-
--- TAB 3
-
-Section3:Toggle({
-   Text = "ESP Box",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
-Section3:Toggle({
-   Text = "ESP Name",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
-Section3:Toggle({
-   Text = "ESP Health",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
-Section3:Toggle({
-   Text = "ESP Distance",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
--- TAB 4
-
-Section4:Toggle({
-   Text = "ESP Box",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
-Section4:Toggle({
-   Text = "ESP Name",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
-
-Section4:Toggle({
-   Text = "ESP Distance",
-   Callback = function(bool)
-       warn(bool)
-   end
-})
 MovingShot:GetPropertyChangedSignal("Value"):Connect(function()
     if getgenv().AutoTimeEnabled then
         if MovingShot.Value == true then
@@ -309,7 +220,7 @@ StandingShot:GetPropertyChangedSignal("Value"):Connect(function()
         end
     elseif getgenv().AutoAimbotEnabled then 
 
-        task.wait(0.58609485)
+        task.wait(0.52609485)
     
         local args = {
             [1] = false,
@@ -428,7 +339,18 @@ DrivingDunk:GetPropertyChangedSignal("Value"):Connect(function()
             game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(unpack(args))
 
             DrivingDunk.Value = false
-    else
+    elseif getgenv().AutoAimbotEnabled then 
+
+        task.wait(0.51609485)
+    
+            local args = {
+                [1] = false,
+                [2] = "Moving Dunk",
+                [3] = getgenv().PassedNumber
+            }
+
+            game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(unpack(args))
+
         DrivingDunk.Value = false
     end
 end)
@@ -451,7 +373,18 @@ StandingDunk:GetPropertyChangedSignal("Value"):Connect(function()
 
             StandingDunk.Value = false
         end
-    else
+    elseif getgenv().AutoAimbotEnabled then 
+
+        task.wait(0.49609485)
+    
+            local args = {
+                [1] = false,
+                [2] = "Standing Dunk",
+                [3] = getgenv().PassedNumber
+            }
+
+            game:GetService("Players").LocalPlayer.Backpack.PlayerEvents.Shooting:FireServer(unpack(args))
+
         StandingDunk.Value = false
     end
 end)
